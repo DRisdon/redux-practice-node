@@ -2,11 +2,13 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const postController = require('./controllers/posts')
-
+const logger = require('morgan')
 const bodyParser = require('body-parser');
 
 const cors = require('cors');
 app.use(cors());
+
+app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
